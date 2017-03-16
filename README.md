@@ -1,9 +1,5 @@
-# backUp101
-backup for 101 and 121 files
-
-containing some backup files for CS 101 and CS 121b
+Mainly used for certain intersting MIT Scheme/Lisp codes
 
 Currently containing:
-1. CS121b PS2
-2. CS101 PS2
-3. CS101 PS3
+1. Certain questions w/ answers to Structure and Interpretation of Computer Programs
+
