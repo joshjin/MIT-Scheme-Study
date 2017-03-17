@@ -40,3 +40,4 @@ Don't use the eq? predicate unless you know exactly what you're doing.
 
 Credit to Aadit M Shah
 URL: http://stackoverflow.com/questions/16299246/what-is-the-difference-between-eq-eqv-equal-and-in-scheme
+http://www.gnu.org/software/mit-scheme/documentation/mit-scheme-ref/Searching-Lists.html
