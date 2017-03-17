@@ -1,0 +1,42 @@
+ The = predicate is used to check whether two numbers are equal. If you supply it anything else but a number then it will raise an error:
+
+(= 2 3)     => #f
+(= 2.5 2.5) => #t
+(= '() '()) => error
+The eq? predicate is used to check whether its two parameters respresent the same object in memory. For example:
+
+(define x '(2 3))
+(define y '(2 3))
+(eq? x y)         => #f
+(define y x)
+(eq? x y)         => #t
+Note however that there's only one empty list '() in memory (actually the empty list doesn't exist in memory, but a pointer to the memory location 0 is considered as the empty list). Hence when comparing empty lists eq? will always return #t (because they represent the same object in memory):
+
+(define x '())
+(define y '())
+(eq? x y)      => #t
+Now depending upon the implementation eq? may or may not return #t for primitive values such as numbers, strings, etc. For example:
+
+(eq? 2 2)     => depends upon the implementation
+(eq? "a" "a") => depends upon the implementation
+This is where the eqv? predicate comes into picture. The eqv? is exactly the same as the eq? predicate, except that it will always return #t for same primitive values. For example:
+
+(eqv? 2 2)     => #t
+(eqv? "a" "a") => #t
+Hence eqv? is a superset of eq? and for most cases you should use eqv? instead of eq?.
+
+Finally we come to the equal? predicate. The equal? predicate is exactly the same as the eqv? predicate, except that it can also be used to test whether two lists, vectors, etc. have corresponding elements which satisfy the eqv? predicate. For example:
+
+(define x '(2 3))
+(define y '(2 3))
+(equal? x y)      => #t
+(eqv? x y)        => #f
+In general:
+
+Use the = predicate when you wish to test whether two numbers are equivalent.
+Use the eqv? predicate when you wish to test whether two non-numeric values are equivalent.
+Use the equal? predicate when you wish to test whether two lists, vectors, etc. are equivalent.
+Don't use the eq? predicate unless you know exactly what you're doing.
+
+Credit to Aadit M Shah
+URL: http://stackoverflow.com/questions/16299246/what-is-the-difference-between-eq-eqv-equal-and-in-scheme
